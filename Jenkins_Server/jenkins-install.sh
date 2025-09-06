@@ -19,6 +19,7 @@ tar -xzf /tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz -C  /opt/
 mv /opt/apache-maven-$MAVEN_VERSION /opt/maven
 ln -s /opt/maven/bin/mvn /usr/local/bin/mvn
 echo "M2_HOME=/opt/maven" | tee -a /etc/environment
+echo "JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto.x86_64" | tee -a /etc/environment
 rm -rf /tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz
 
 # then install terraform
