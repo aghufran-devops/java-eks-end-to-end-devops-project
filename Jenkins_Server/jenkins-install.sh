@@ -17,13 +17,16 @@ MAVEN_VERSION=3.9.11
 wget https://dlcdn.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz -P /tmp
 tar -xzf /tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz -C  /opt/
 mv /opt/apache-maven-$MAVEN_VERSION /opt/maven
+ln -s /opt/maven/bin/mvn /usr/local/bin/mvn
+echo "M2_HOME=/opt/maven" | tee -a /etc/environment
+rm -rf /tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz
 
 # then install terraform
 yum install -y yum-utils
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 yum -y install terraform
 
- #finally install kubectl
+# finally install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
