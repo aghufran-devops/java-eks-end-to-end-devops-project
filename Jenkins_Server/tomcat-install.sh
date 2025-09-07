@@ -14,9 +14,9 @@ source /etc/profile
 
 # Download and install Tomcat 11
 cd /opt
-wget https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.11/bin/apache-tomcat-11.0.11.tar.gz
-tar -xzvf apache-tomcat-11.0.11.tar.gz
-mv apache-tomcat-11.0.11 tomcat
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.109/bin/apache-tomcat-9.0.109.tar.gz
+tar -xzvf tar -xzvf apache-tomcat-9.0.109
+mv apache-tomcat-9.0.109 tomcat
 
 # Set permissions
 chmod +x /opt/tomcat/bin/startup.sh
