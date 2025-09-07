@@ -111,3 +111,26 @@ module "ec2_instance_Tomcat" {
     Environment = "pre"
   }
 }
+
+module "ec2_instance_Docker" {
+  source = "terraform-aws-modules/ec2-instance/aws"
+
+  name = "Tomcat-Server"
+
+  ami                         = data.aws_ami.Amazon_Linux_2023.id
+  instance_type               = var.instance_type
+  availability_zone           = data.aws_availability_zones.azs.names[0]
+  subnet_id                   = module.vpc.public_subnets[0]
+  vpc_security_group_ids      = [module.sg.security_group_id]
+  key_name                    = "IGP-keypair-eks-s3-dynamo-ecr-ec2-user"
+  monitoring                  = true
+  associate_public_ip_address = true
+  user_data                   = file("docker-install.sh")
+
+
+  tags = {
+    Name        = "Docker-Host"
+    Terraform   = "true"
+    Environment = "pre"
+  }
+}
