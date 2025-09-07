@@ -54,6 +54,7 @@ awk '/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/ {
 
 
 # Update users information in conf/tomcat-users.xml file
+# This step is for testing purpose only. In Production please perform this step manually and use strong passwords
 sed -i '/<\/tomcat-users>/i \
 <role rolename="manager-gui"/>\n\
 <role rolename="manager-script"/>\n\
