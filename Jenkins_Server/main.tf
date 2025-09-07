@@ -115,7 +115,7 @@ module "ec2_instance_Tomcat" {
 module "ec2_instance_Docker" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "Tomcat-Server"
+  name = "Docker-Host"
 
   ami                         = data.aws_ami.Amazon_Linux_2023.id
   instance_type               = var.instance_type
