@@ -8,3 +8,5 @@ useradd dockeradmin
 usermod -aG docker dockeradmin
 sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 systemctl reload sshd
+mkdir /opt/docker
+chown -R dockeradmin:dockeradmin /opt/docker

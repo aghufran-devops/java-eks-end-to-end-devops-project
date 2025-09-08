@@ -33,4 +33,6 @@ chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
 
 # finally install helm
-yum install helm -y
+wget https://get.helm.sh/helm-v3.19.0-rc.1-linux-amd64.tar.gz -P /tmp
+tar -xzf /tmp/helm-v3.19.0-rc.1-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/local/bin/helm
